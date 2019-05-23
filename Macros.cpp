@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main()
 {
-	printf("Current time: %s",__TIME__);
-	printf("current file:%s",__FILE__);
-	printf("current line number:%d",__LINE__);
-	printf("current DATE:%s",__DATE__);
-	printf("ansi standard:%d",__STDC__);
+	printf("Current time: %s\n",__TIME__);
+	printf("current file:%s\n",__FILE__);
+	printf("current line number:%d\n",__LINE__);
+	printf("current DATE:%s\n",__DATE__);
+	printf("ansi standard:%d\n",__STDC__);
 }
