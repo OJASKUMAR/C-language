@@ -1,0 +1,47 @@
+//program to check for a positive or negative number
+#include <stdio.h>
+int main()
+{
+	int n;
+	printf("Enter the number");
+	scanf("%d",&n);
+	if(n>0)
+	printf("The integer is positive");
+	else 
+	printf("The integer is negative");
+	return 0;
+}
+//program to check if a number is odd orn even
+#include <stdio.h>
+int main()
+{
+	int n;
+	printf("Enter the number");
+	scanf("%d",&n);
+	if(n%2==0)
+	printf("The integer is even");
+	else 
+	printf("The integer is odd");
+	return 0;
+}
+//program to check if two numbers are greater  less than  or equal to each other
+#include<stdio.h>
+int main()
+{
+printf("Enter two numbers");
+scanf("%d%d",&n1,&n2);
+if(n1>n2)
+printf("%d is greater than %d",n1,n2);
+else if(n2>n1)
+printf("%d is less than %d",n2,n1);
+else
+printf("%d=%d",n1,n2);
+return 0;
+}
+	
+	
+	
+	
+	
+	
+ 
