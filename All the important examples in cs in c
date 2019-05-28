@@ -1,0 +1,93 @@
+//Program to check  vowel or consonant
+#include<stdio.h>
+int main()
+{
+	char c;
+	printf("enter an alphabet");
+	scanf("%c",&c);
+	if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
+	{
+	printf("the alphabet is a vowel");
+    }
+	else
+	{ 
+	printf("the alphabet is a consonant");
+	}
+}
+//Program to check largest among three numbers
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	printf("Enter three numbers");
+	scanf("%d%d%d",&a,&b,&c);
+	if (a>b&&a>c)
+	printf("%d is the greatest",a);
+	else if (b>a&&b>c)
+	printf("%d is the greatest",b);
+	else 
+	printf("%d is greatest",c);
+}
+//program to find factorial of a number
+#include<stdio.h>
+int main()
+{
+int i,fact=1,n;
+printf("enter the number upto which the factorial has to be calculated");
+scanf("%d",&n);
+for (i=1;i<=n;i++)
+{
+	fact=fact*i;
+}
+printf("the factorial of the number is %d",fact);
+}
+	//Program to find the sum of natural numbers
+ #include<stdio.h>
+ int main()
+{
+	int i,n,sum=0;
+printf("enter the number you want to enter ");
+scanf("%d",&n);
+for(i=1;i<=n;i++)
+{
+sum=sum+i;
+}
+printf("The sum is %d",sum);
+}
+	//Program to print the table of any integer
+  #include<stdio.h>
+int main()
+{
+	int i,n;
+	printf("Enter the number for multiplication table]");
+	scanf("%d",&n);
+	for(i=1;i<=10;i++)
+	{
+     printf("The number is %d\n ",n*i);
+	}
+	
+}
+//Program for fibbonacci series
+#include<stdio.h>
+int main()
+{
+	int f0=0,f1=1,i,n,sum;
+	printf("Enter the number upto which fibbonacci series has to be printed");
+	scanf("%d",&n);
+	printf("the fibbonacci series is:");
+	for (i=0;i<n;i++)
+	{
+		
+		
+		printf("%d",f0);
+		sum=f0+f1;
+		f0=f1;
+		f1=sum;
+		
+		
+	}
+	return 0;
+}
+	
+	
+	
