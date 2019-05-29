@@ -109,6 +109,51 @@ int main()
 
     return 0;
 }	
+//C program to find lcm of a number
+#include <stdio.h>
+int main()
+{
+    int n1, n2, i, gcd, lcm;
 
+    printf("Enter two positive integers: ");
+    scanf("%d %d",&n1,&n2);
+
+    for(i=1; i <= n1 && i <= n2; ++i)
+    {
+        // Checks if i is factor of both integers
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+
+    lcm = (n1*n2)/gcd;
+    printf("The LCM of two numbers %d and %d is %d.", n1, n2, lcm);
+
+    return 0;
+}
+//Program to Display English Alphabets in Uppercase and Lowercase
+
+	//Program to Display English Alphabets in Uppercase and Lowercase
+#include<stdio.h>
+int main()
+{
+	char c;
+	printf("enter the number u want to enter");
+	scanf("%c",&c);
+	if(c=='U'||c=='u')
+	{
+		    for(c='A';c<'z';c++)
+		printf("%c",c);
+		
+	}
+	else if(c=='l'|| c=='L')
+	{
+		for(c='a';c<'z';c++)
+			printf("%c",c);
+	}
+	else 
+	printf("You entered a wrong statement");
+}
 	
+	
+
 	
