@@ -172,5 +172,113 @@ int main()
 
     printf("Number of digits: %d", count);
 }
+//program to find number of digits in an integer
+#include <stdio.h>
+int main()
+{
+    long long n;
+    int count = 0;
+
+    printf("Enter an integer: ");
+    scanf("%lld", &n);
+
+    while(n != 0)
+    {
+        // n = n/10
+        n /= 10;
+        ++count;
+    }
+
+    printf("Number of digits: %d", count);
+}
+//Program to reverse a number
+#include <stdio.h>
+int main()
+{
+    int n, reversedNumber = 0, remainder;
+
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    while(n != 0)
+    {
+        remainder = n%10;
+        reversedNumber = reversedNumber*10 + remainder;
+        n /= 10;
+    }
+
+    printf("Reversed Number = %d", reversedNumber);
+
+    return 0;
+}
+//Program to check for a pallindrome
+#include <stdio.h>
+int main()
+{
+    int n, rev = 0, r, Integer;
+
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    Integer = n;
+
+    // reversed integer is stored in variable 
+    while( n!=0 )
+    {
+        r = n%10;
+        reversedInteger = reversedInteger*10 + remainder;
+        n /= 10;
+    }
+
+    // palindrome if orignalInteger and reversedInteger are equal
+    if (originalInteger == reversedInteger)
+        printf("%d is a palindrome.", originalInteger);
+    else
+        printf("%d is not a palindrome.", originalInteger);
+    
+    return 0;
+   // C Program to Check Whether a Number is Prime or Not
+    #include <stdio.h>
+int main()
+{
+    int n, i, flag = 0;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    for(i = 2; i <= n/2; ++i)
+    {
+        // condition for nonprime number
+        if(n%i == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+
+    if (n == 1) 
+    {
+      printf("1 is neither a prime nor a composite number.");
+    }
+    else 
+    {
+        if (flag == 0)
+          printf("%d is a prime number.", n);
+        else
+          printf("%d is not a prime number.", n);
+    }
+    
+    return 0;
+}
+    
+    
+    
+    
+    
+    
+}
+
+
+
 
 	
