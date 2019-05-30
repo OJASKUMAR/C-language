@@ -271,7 +271,8 @@ int main()
     return 0;
 }
 }
-//#include <stdio.h>
+//Program to find prime numbers in an interval
+#include <stdio.h>
 int main()
 {
     int low, high, i, flag;
