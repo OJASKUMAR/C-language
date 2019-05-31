@@ -1,3 +1,4 @@
+//Program to find prime number
 #include <stdio.h>
 
 int checkPrime(int n);
@@ -34,4 +35,74 @@ int checkPrime(int n)
         }
     }
     return flag;
+}
+
+//program to find prime number and armstrong number using functions
+#include<stdio.h>
+#include<math.h>
+
+int checkPrime(int n);
+int checkArmstrong(int n);
+
+int main()
+{
+int n,flag;
+printf("Enter a positive number");
+scanf("%d",&n);
+//check prime number
+flag=checkPrime(n);
+if(flag==1)
+ printf("%d is a prime number\n",n);
+else
+ printf("%d is not a prime number\n",n);
+//check armstrong number
+ flag=checkArmstrong(n);
+if (flag==1)
+ printf("%d is an armstrong number",n);
+ else 
+ printf("%d is not an armstrong number",n);
+ return 0;
+}
+int checkPrime(int n)
+{
+	int i,flag=1;
+	for(i=2;i<=n/2;i++)
+	{
+		//condition for non prime number
+		if(n%i==0)
+		{
+			flag=0;
+			break;
+		}
+	}
+	return flag;
+	
+}
+int checkArmstrong(int num)
+{
+ int orignum,rem,res=0,n=0,flag;
+ orignum=num;
+ while(orignum!=0)
+ {
+ orignum/=10; 	
+ 	n++;
+}	
+	orignum=num;
+	while(orignum!=0)
+	{
+		rem=n%10;
+		res +=pow (rem,n);
+		orignum/=10;
+	}
+	
+	
+//condition for Armstrong number
+if(res==num)
+ flag=1;
+else 
+ flag=0;
+return flag;	
+	
+	
+	
 }
