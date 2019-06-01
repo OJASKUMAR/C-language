@@ -18,3 +18,45 @@ int addnum(int n)
 	else
 	return n;
 }
+//Reverse a sentence using recursion
+#include<stdio.h>
+void revSen();
+int main()
+{
+	printf("Enter a sentence");
+	revSen();
+	
+	return 0;
+}
+void revSen()
+{
+	char c;
+	scanf("%c",&c);
+	if(c!='\n')
+	{
+		revSen();
+		printf("%c",c);
+		
+		
+	}
+	
+	
+}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
+	
