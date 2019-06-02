@@ -27,10 +27,10 @@ int main()
 
 int main()
 {
-    char line[150];
-    int i, vowels, consonants, digits, spaces;
+    char line[100];
+    int i, v, c, d, s;
 
-    vowels =  consonants = digits = spaces = 0;
+    v =  c = d = s = 0;
 
     printf("Enter a line of string: ");
     scanf("%[^\n]", line);
@@ -42,26 +42,26 @@ int main()
            line[i]=='E' || line[i]=='I' || line[i]=='O' ||
            line[i]=='U')
         {
-            ++vowels;
+            ++v;
         }
         else if((line[i]>='a'&& line[i]<='z') || (line[i]>='A'&& line[i]<='Z'))
         {
-            ++consonants;
+            ++c;
         }
         else if(line[i]>='0' && line[i]<='9')
         {
-            ++digits;
+            ++d;
         }
         else if (line[i]==' ')
         {
-            ++spaces;
+            ++s;
         }
     }
 
-    printf("Vowels: %d",vowels);
-    printf("\nConsonants: %d",consonants);
-    printf("\nDigits: %d",digits);
-    printf("\nWhite spaces: %d", spaces);
+    printf("Vowels: %d",v);
+    printf("\nConsonants: %d",c);
+    printf("\nDigits: %d",d);
+    printf("\nWhite spaces: %d", s);
 
     return 0;
 }
