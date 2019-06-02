@@ -1,3 +1,47 @@
+//Program to understand the concept of pointer
+#include <stdio.h>
+int main()
+{
+   int* p, c;
+   
+   c = 12;
+   printf("Address of c: %u\n", &c);
+   printf("Value of c: %d\n\n", c);
+   
+   p = &c;
+   printf("Address of pointer p: %u\n", p);
+   printf("Content of pointer p: %d\n\n", *p);
+   
+   c = 12;
+   printf("Address of pointer p: %u\n", p);
+   printf("Content of pointer p: %d\n\n", *p);
+   
+   *p = 2;
+   printf("Address of c: %u\n", &c);
+   printf("Value of c: %d\n\n", c);
+   return 0;
+}
+//*
+int c, *pc;
+
+// Wrong! pc is address whereas, 
+// c is not an address.
+pc = c;  
+
+// Wrong! *pc is the value pointed by address whereas, 
+// &c is an address.
+*pc = &c; 
+
+// Correct! pc is an address and, 
+// &c is also an address.
+pc = &c; 
+
+// Correct! *pc is the value pointed by address and, 
+// c is also a value (not address).
+*pc = c;
+*//
+
+
 //Programs to access elements of an array through pointers
 #include <stdio.h>
 
