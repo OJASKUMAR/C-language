@@ -68,7 +68,61 @@ int main()
 		return 0;
 	}
 	
+//Program to access structure members using pointer
+#include <stdio.h>
+struct person
+{
+   int age;
+   float weight;
+};
+
+int main()
+{
+    struct person *personPtr, person1;
+    personPtr = &person1;   
+
+    printf("Enter age:");
+    scanf("%d", &personPtr->age);
+
+    printf("Enter weight:");
+    scanf("%f", &personPtr->weight);
+
+    printf("Displaying:\n");
+    printf("Age: %d\n", personPtr->age);
+    printf("weight: %f", personPtr->weight);
+
+    return 0;
+}
 	
-	
-	
+//Program to use structures using Dynamic memory allocation and pointers
+#include <stdio.h>
+#include <stdlib.h>
+struct person {
+   int age;
+   float weight;
+   char name[30];
+};
+
+int main()
+{
+   struct person *ptr;
+   int i, n;
+
+   printf("Enter number of persons: ");
+   scanf("%d", &n);
+
+   ptr = (struct person*) malloc(num * sizeof(struct person));
+
+   for(i = 0; i < n; ++i)
+   {
+       printf("Enter first name and age respectively: ");
+       scanf("%s%d", &(ptr+i)->name, &(ptr+i)->age);
+   }
+
+   printf("Displaying Information:\n");
+   for(i = 0; i < n; ++i)
+       printf("Name: %s\tAge: %d\n", (ptr+i)->name, (ptr+i)->age);
+
+   return 0;
+}
 	
