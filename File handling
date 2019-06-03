@@ -1,0 +1,305 @@
+//Program to write to a text file using fprintf()
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int num;
+   FILE *fptr;
+   fptr = fopen("C:\\program.txt","w");
+
+   if(fptr == NULL)
+   {
+      printf("Error!");   
+      exit(1);             
+   }
+
+   printf("Enter num: ");
+   scanf("%d",&num);
+
+   fprintf(fptr,"%d",num);
+   fclose(fptr);
+
+   return 0;
+}
+
+//Program to read from a text file using fscanf()
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int num;
+   FILE *fptr;
+
+   if ((fptr = fopen("C:\\program.txt","r")) == NULL){
+       printf("Error! opening file");
+
+       // Program exits if the file pointer returns NULL.
+       exit(1);
+   }
+
+   fscanf(fptr,"%d", &num);
+
+   printf("Value of n=%d", num);
+   fclose(fptr); 
+  
+   return 0;
+}
+
+//Program to write to a binary file using fwrite()
+#include <stdio.h>
+#include <stdlib.h>
+
+struct threeNum
+{
+   int n1, n2, n3;
+};
+
+int main()
+{
+   int n;
+   struct threeNum num;
+   FILE *fptr;
+
+   if ((fptr = fopen("C:\\program.bin","wb")) == NULL){
+       printf("Error! opening file");
+
+       // Program exits if the file pointer returns NULL.
+       exit(1);
+   }
+
+   for(n = 1; n < 5; ++n)
+   {
+      num.n1 = n;
+      num.n2 = 5*n;
+      num.n3 = 5*n + 1;
+      fwrite(&num, sizeof(struct threeNum), 1, fptr); 
+   }
+   fclose(fptr); 
+  
+   return 0;
+}
+//Program to read from a binary file using fread()
+#include <stdio.h>
+#include <stdlib.h>
+
+struct threeNum
+{
+   int n1, n2, n3;
+};
+
+int main()
+{
+   int n;
+   struct threeNum num;
+   FILE *fptr;
+
+   if ((fptr = fopen("C:\\program.bin","rb")) == NULL){
+       printf("Error! opening file");
+
+       // Program exits if the file pointer returns NULL.
+       exit(1);
+   }
+
+   for(n = 1; n < 5; ++n)
+   {
+      fread(&num, sizeof(struct threeNum), 1, fptr); 
+      printf("n1: %d\tn2: %d\tn3: %d", num.n1, num.n2, num.n3);
+   }
+   fclose(fptr); 
+  
+   return 0;
+}
+
+//Program to illustrate fseek()
+Example 5: fseek()
+#include <stdio.h>
+#include <stdlib.h>
+
+struct threeNum
+{
+   int n1, n2, n3;
+};
+
+int main()
+{
+   int n;
+   struct threeNum num;
+   FILE *fptr;
+
+   if ((fptr = fopen("C:\\program.bin","rb")) == NULL){
+       printf("Error! opening file");
+
+       // Program exits if the file pointer returns NULL.
+       exit(1);
+   }
+   
+   // Moves the cursor to the end of the file
+   fseek(fptr, -sizeof(struct threeNum), SEEK_END);
+
+   for(n = 1; n < 5; ++n)
+   {
+      fread(&num, sizeof(struct threeNum), 1, fptr); 
+      printf("n1: %d\tn2: %d\tn3: %d\n", num.n1, num.n2, num.n3);
+      fseek(fptr, -2*sizeof(struct threeNum), SEEK_CUR);
+   }
+   fclose(fptr); 
+  
+   return 0;
+}
+//Program to  read name and marks of n number of students from user and store them in a file.
+#include <stdio.h>
+int main()
+{
+   char name[50];
+   int marks, i, num;
+
+   printf("Enter number of students: ");
+   scanf("%d", &num);
+
+   FILE *fptr;
+   fptr = (fopen("C:\\student.txt", "w"));
+   if(fptr == NULL)
+   {
+       printf("Error!");
+       exit(1);
+   }
+
+   for(i = 0; i < num; ++i)
+   {
+      printf("For student%d\nEnter name: ", i+1);
+      scanf("%s", name);
+
+      printf("Enter marks: ");
+      scanf("%d", &marks);
+
+      fprintf(fptr,"\nName: %s \nMarks=%d \n", name, marks);
+   }
+
+   fclose(fptr);
+   return 0;
+}
+//C program to read name and marks of n number of students from user and store them in a file. If the file previously exits, 
+add the information of n students.
+
+#include <stdio.h>
+int main()
+{
+   char name[50];
+   int marks, i, num;
+
+   printf("Enter number of students: ");
+   scanf("%d", &num);
+
+   FILE *fptr;
+   fptr = (fopen("C:\\student.txt", "a"));
+   if(fptr == NULL)
+   {
+       printf("Error!");
+       exit(1);
+   }
+
+   for(i = 0; i < num; ++i)
+   {
+      printf("For student%d\nEnter name: ", i+1);
+      scanf("%s", name);
+
+      printf("Enter marks: ");
+      scanf("%d", &marks);
+
+      fprintf(fptr,"\nName: %s \nMarks=%d \n", name, marks);
+   }
+
+   fclose(fptr);
+   return 0;
+}
+// C program to write all the members of an array of structures to a file using fwrite(). Read the array from the file 
+and display on the screen.
+
+#include <stdio.h>
+struct student
+{
+   char name[50];
+   int height;
+};
+int main(){
+    struct student stud1[5], stud2[5];   
+    FILE *fptr;
+    int i;
+
+    fptr = fopen("file.txt","wb");
+    for(i = 0; i < 5; ++i)
+    {
+        fflush(stdin);
+        printf("Enter name: ");
+        gets(stud1[i].name);
+
+        printf("Enter height: "); 
+        scanf("%d", &stud1[i].height); 
+    }
+
+    fwrite(stud1, sizeof(stud1), 1, fptr);
+    fclose(fptr);
+
+    fptr = fopen("file.txt", "rb");
+    fread(stud2, sizeof(stud2), 1, fptr);
+    for(i = 0; i < 5; ++i)
+    {
+        printf("Name: %s\nHeight: %d", stud2[i].name, stud2[i].height);
+    }
+    fclose(fptr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
